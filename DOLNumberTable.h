@@ -5,7 +5,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DOLDataRequest.h"
+#import "GOVDataRequest.h"
 #import "LoadingView.h"
 
 
@@ -16,11 +16,12 @@
 #define kLabelRect			CGRectMake(10.0, 8.0, 275.0, 20.0)
 
 // You need to supply your own API key and secret.  You can get yours at http://developer.dol.gov
-#define API_KEY @""
+#define API_KEY @"2bc4aa85-4d4e-4e33-820e-5ddbc7a1c237"
 #define API_SECRET @""
 #define API_HOST @"http://api.dol.gov"
+#define API_URL @"/V1"
 
-@interface DOLNumberTable : UITableViewController<DOLDataRequestDelegate> {
+@interface DOLNumberTable : UITableViewController<GOVDataRequestDelegate> {
 
         NSMutableArray *blsNumbers;
         NSMutableArray *blsIndexes;
@@ -77,7 +78,7 @@
     
     
         NSArray *arrayOfResults;
-        DOLDataRequest *dataRequest;
+        GOVDataRequest *dataRequest;
        NSString *displayweek;
        UIActivityIndicatorView  *spinner;
        int day;
@@ -107,7 +108,7 @@
     @property (nonatomic, retain) UIImage *unselectedImage;
 
     @property(nonatomic, retain)NSArray *arrayOfResults;
-    @property(nonatomic, retain)DOLDataRequest *dataRequest;
+    @property(nonatomic, retain)GOVDataRequest *dataRequest;
     
     @property BOOL inPseudoEditMode;
     

@@ -321,7 +321,7 @@
                                                encoding:NSASCIIStringEncoding];
    NSString *returntitle= [self flattenHTMLForTitle:myString];
     NSString *returnsubtitle= [self flattenHTMLForSubTitle:myString];
-    NSString *returntabletitle = [NSString stringWithFormat:@"Long %C dash", 0x2014];
+    NSString *returntabletitle = [NSString stringWithFormat:@"Long %C dash", (unichar)0x2014];
    returntabletitle= [self flattenHTMLForTableTitle:myString];
     NSString *rawData= [self flattenHTMLForDate:myString];
    

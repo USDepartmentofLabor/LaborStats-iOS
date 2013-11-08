@@ -355,17 +355,24 @@
                
                //NSLog(@"%@",[[[dict objectForKey:@"rss"]objectForKey:@"channel"]objectForKey:@"item"]);
                cell.detailTextLabel.numberOfLines=3;
-               
+           
+           NSLog(@"%@", [[[dict objectForKey:@"rss"] objectForKey:@"channel"] objectForKey:@"item"]);
                
                DOLNumbersAppDelegate *myAppDelegate =(DOLNumbersAppDelegate *) [[UIApplication sharedApplication] delegate];
                
-               myAppDelegate.newsText=[[[[[dict objectForKey:@"rss"]objectForKey:@"channel"]objectForKey:@"item"]objectForKey:@"title"]objectForKey:@"text"];
-               myAppDelegate.newsDetailText=[[[[[dict objectForKey:@"rss"]objectForKey:@"channel"]objectForKey:@"item"]objectForKey:@"description"]objectForKey:@"text"];
-               myAppDelegate.link=[[[[[dict objectForKey:@"rss"]objectForKey:@"channel"]objectForKey:@"item"]objectForKey:@"link"]objectForKey:@"text"];
-               cell.textLabel.text=[[[[[dict objectForKey:@"rss"]objectForKey:@"channel"]objectForKey:@"item"]objectForKey:@"title"]objectForKey:@"text"];
-               cell.detailTextLabel.text=[[[[[dict objectForKey:@"rss"]objectForKey:@"channel"]objectForKey:@"item"]objectForKey:@"description"]objectForKey:@"text"];
-               
-               
+//           myAppDelegate.newsText=[[[[[dict objectForKey:@"rss"] objectForKey:@"channel"] objectForKey:@"item"] objectForKey:@"title"] objectForKey:@"text"];
+//           myAppDelegate.newsDetailText=[[[[[dict objectForKey:@"rss"]objectForKey:@"channel"]objectForKey:@"item"]objectForKey:@"description"]objectForKey:@"text"];
+//           myAppDelegate.link=[[[[[dict objectForKey:@"rss"]objectForKey:@"channel"]objectForKey:@"item"]objectForKey:@"link"]objectForKey:@"text"];
+//           cell.textLabel.text=[[[[[dict objectForKey:@"rss"]objectForKey:@"channel"]objectForKey:@"item"]objectForKey:@"title"]objectForKey:@"text"];
+//           cell.detailTextLabel.text=[[[[[dict objectForKey:@"rss"]objectForKey:@"channel"]objectForKey:@"item"]objectForKey:@"description"]objectForKey:@"text"];
+
+           myAppDelegate.newsText=[[[[dict objectForKey:@"rss"] objectForKey:@"channel"] objectForKey:@"item"] objectForKey:@"title"];
+           myAppDelegate.newsDetailText=[[[[dict objectForKey:@"rss"]objectForKey:@"channel"]objectForKey:@"item"]objectForKey:@"description"];
+           myAppDelegate.link=[[[[dict objectForKey:@"rss"]objectForKey:@"channel"]objectForKey:@"item"]objectForKey:@"link"];
+           cell.textLabel.text=[[[[dict objectForKey:@"rss"]objectForKey:@"channel"]objectForKey:@"item"]objectForKey:@"title"];
+           cell.detailTextLabel.text=[[[[dict objectForKey:@"rss"]objectForKey:@"channel"]objectForKey:@"item"]objectForKey:@"description"];
+           
+           
                
         }
         else

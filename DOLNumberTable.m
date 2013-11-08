@@ -446,7 +446,7 @@
     
     NSDictionary *arguments = [NSDictionary dictionaryWithObject: [NSString stringWithFormat:@"week eq datetime'%@T00:00:00'",currentweek] forKey:@"filter"];
     
-    [dataRequest callAPIMethod:@"Statistics/OUI_InitialClaims/unemploymentInsuranceInitialClaims" withArguments:arguments];
+    [dataRequest callAPIMethod:@"Statistics/OUI_InitialClaims/unemploymentInsuranceInitialClaims" withArguments:arguments andTimeOut:60];
     
     
 }
@@ -454,7 +454,7 @@
 {
     NSDictionary *arguments = [NSDictionary dictionaryWithObject: [NSString stringWithFormat:@"(year eq %i)and (period eq %i)",year,month] forKey:@"filter"];
     
-    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/consumerPriceIndex1MonthChange" withArguments:arguments];
+    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/consumerPriceIndex1MonthChange" withArguments:arguments andTimeOut:60];
     
 }
 
@@ -462,7 +462,7 @@
 {
     NSDictionary *arguments = [NSDictionary dictionaryWithObject: [NSString stringWithFormat:@"(year eq %i)and (period eq %i)",year,month] forKey:@"filter"];
     
-    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/unemploymentRate" withArguments:arguments];
+    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/unemploymentRate" withArguments:arguments andTimeOut:60];
     
     
 }
@@ -470,7 +470,7 @@
 {
     NSDictionary *arguments = [NSDictionary dictionaryWithObject: [NSString stringWithFormat:@"(year eq %i)and (period eq %i)",year,month] forKey:@"filter"];
     
-    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/payrollEmployment1MonthNetChange" withArguments:arguments];
+    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/payrollEmployment1MonthNetChange" withArguments:arguments andTimeOut:60];
     
     
 }
@@ -478,7 +478,7 @@
 {
     NSDictionary *arguments = [NSDictionary dictionaryWithObject: [NSString stringWithFormat:@"(year eq %i)and (period eq %i)",year,month] forKey:@"filter"];
     
-    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/averageHourlyEarnings1MonthNetChange" withArguments:arguments];
+    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/averageHourlyEarnings1MonthNetChange" withArguments:arguments andTimeOut:60];
     
     
 }
@@ -486,7 +486,7 @@
 {
     NSDictionary *arguments = [NSDictionary dictionaryWithObject: [NSString stringWithFormat:@"(year eq %i)and (period eq %i)",year,month] forKey:@"filter"];
     
-    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/producerPriceIndex1MonthChange" withArguments:arguments];
+    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/producerPriceIndex1MonthChange" withArguments:arguments andTimeOut:60];
     
     
 }
@@ -494,7 +494,7 @@
 {
     NSDictionary *arguments = [NSDictionary dictionaryWithObject: [NSString stringWithFormat:@"(year eq %i)and (period eq %i)",year,month] forKey:@"filter"];
     
-    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/importPriceIndex1MonthChange" withArguments:arguments];
+    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/importPriceIndex1MonthChange" withArguments:arguments andTimeOut:60];
     
     
 }
@@ -502,7 +502,7 @@
 {
     NSDictionary *arguments = [NSDictionary dictionaryWithObject: [NSString stringWithFormat:@"(year eq %i)and (period eq %i)",year,month] forKey:@"filter"];
     
-    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/exportPriceIndex1MonthChange" withArguments:arguments];
+    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/exportPriceIndex1MonthChange" withArguments:arguments andTimeOut:60];
     
     
 }
@@ -511,7 +511,7 @@
     
     NSDictionary *arguments = [NSDictionary dictionaryWithObject: [NSString stringWithFormat:@"(year eq %i)and (period eq %i)",year,qtr] forKey:@"filter"];
     
-    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/employmentCostIndex" withArguments:arguments];
+    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/employmentCostIndex" withArguments:arguments andTimeOut:60];
     
 }
 -(void)ifNoValuesInPROQtrArray
@@ -523,7 +523,7 @@
 
     NSDictionary *arguments = [NSDictionary dictionaryWithObject: [NSString stringWithFormat:@"(year eq %i)and (period eq '%@')",year,qtrString] forKey:@"filter"];
     
-    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/productivity" withArguments:arguments];
+    [dataRequest callAPIMethod:@"statistics/BLS_Numbers/productivity" withArguments:arguments andTimeOut:60];
 }
 
 //code ends
@@ -603,10 +603,10 @@
     
     //Create Context object
     //This object will store the URL and authorization information
-    DOLDataContext *context = [[DOLDataContext alloc] initWithAPIKey:API_KEY Host:API_HOST SharedSecret:API_SECRET];
+    GOVDataContext *context = [[GOVDataContext alloc] initWithAPIKey:API_KEY Host:API_HOST SharedSecret:API_SECRET APIURL:API_URL];
     
     //Instantiate a new request
-    dataRequest = [[DOLDataRequest alloc]initWithContext:context];
+    dataRequest = [[GOVDataRequest alloc]initWithContext:context];
     //Set self as delegate
     dataRequest.delegate = self;
     
@@ -1728,7 +1728,7 @@
         }
         else
         {
-            cell.detailTextLabel.text=[NSString stringWithFormat:@"                                                                     %@",ses] ;
+            cell.detailTextLabel.text=[NSString stringWithFormat:@"                                                                             %@",ses] ;
         }
         NSString *accStr=[NSString stringWithFormat:@"%@  %@", [[[NSUserDefaults standardUserDefaults]objectForKey:@"etaNumbers"] objectAtIndex:0] ,ses];
         cell.accessibilityLabel = NSLocalizedString(accStr,);
@@ -2973,7 +2973,7 @@
 }
 
 
--(void)dolDataRequest:(DOLDataRequest *)request didCompleteWithResults:(NSArray *)resultsArray {
+-(void)govDataRequest:(GOVDataRequest *)request didCompleteWithResults:(NSArray *)resultsArray {
     
     
     self.arrayOfResults = [resultsArray retain];
@@ -3348,7 +3348,7 @@
       [self.tableView reloadData];
 }
 
--(void)dolDataRequest:(DOLDataRequest *)request didCompleteWithError:(NSString *)error {
+-(void)govDataRequest:(GOVDataRequest *)request didCompleteWithError:(NSString *)error {
     
     UIAlertView *alert;
     
@@ -3384,4 +3384,24 @@
     [alert release];
     
 }
+
+-(void)govDataRequest:(GOVDataRequest *)request didCompleteWithDictionaryResults:(NSDictionary *)resultsDictionary {
+    
+    
+    NSLog(@"Got a Dictionary");
+	//Save results in our local dictionary instance
+    //NSLog(@"%@", resultsDictionary);
+	//self.dictionaryOfResults = [resultsDictionary retain];
+    //    NSLog(@"%@", self.dictionaryOfResults);
+	//Refresh the tableView
+	//[self.tableView reloadData];
+}
+
+-(void)govDataRequest:(GOVDataRequest *)request didCompleteWithUnParsedResults:(NSString *)resultsString {
+    
+    NSLog(@"Got data that was likely not formatted properly");
+    //NSLog(@"%@", resultsString);
+    
+}
+
 @end
