@@ -56,7 +56,6 @@
 								cancelButtonTitle:@"Ok"
 								otherButtonTitles:nil];
 		[myAlert show];
-		[myAlert release];
 	} 
     else
     {
@@ -115,19 +114,10 @@
                         initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
         
         self.navigationItem.rightBarButtonItem = refreshButton;
-        [refreshButton release];
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-  
-    
-    
-    
-}
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -165,7 +155,6 @@
 								cancelButtonTitle:@"Ok"
 								otherButtonTitles:nil];
 		[myAlert show];
-		[myAlert release];
 	} 
     else
     {
@@ -266,8 +255,6 @@
     [view addSubview:imgView];
     [view addSubview:label1];
     
-    [imgView release];
-    [label1 release];
     return view;
     
     
@@ -308,7 +295,7 @@
 {
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"rssItemCell"];
 	if(nil == cell){
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"rssItemCell"]autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"rssItemCell"];
 	}
     Reachability *r = [Reachability reachabilityWithHostName:@"www.google.com"];
 	NetworkStatus internetStatus = [r currentReachabilityStatus];
@@ -321,7 +308,6 @@
 								cancelButtonTitle:@"Ok"
 								otherButtonTitles:nil];
 		[myAlert show];
-		[myAlert release];
 	} 
     else
     {
@@ -332,7 +318,7 @@
         
                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                
-               NSString *str = [[NSString alloc] initWithString:@"http://www.dol.gov/rss/news-ui.xml"];
+               NSString *str = @"http://www.dol.gov/rss/news-ui.xml";
                
                
                NSURL *url = [NSURL URLWithString:str];
@@ -350,8 +336,6 @@
                NSDictionary *dict = [XMLReader dictionaryForXMLString:responseString error:&errXml];
                
                
-               [responseString release];
-               [str release];
                
                //NSLog(@"%@",[[[dict objectForKey:@"rss"]objectForKey:@"channel"]objectForKey:@"item"]);
                cell.detailTextLabel.numberOfLines=3;
@@ -390,7 +374,6 @@
             cell.detailTextLabel.text = [self flattenHTMLForSubTitle:myString];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             
-            [myString release];
             
             //               
             
@@ -406,7 +389,6 @@
             cell.textLabel.text = @"EMPSIT - Employment Situation";
             cell.detailTextLabel.text = [self flattenHTMLForSubTitle:myString];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            [myString release];
             
         }
         else if(indexPath.row==2)
@@ -421,7 +403,6 @@
             cell.textLabel.text = @"PPI - Producer Price Index";
             cell.detailTextLabel.text = [self flattenHTMLForSubTitle:myString];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            [myString release];
             
             
             
@@ -435,7 +416,6 @@
             cell.textLabel.text = @"PROD2 - Productivity and Costs";
             cell.detailTextLabel.text =[self flattenHTMLForSubTitle:myString];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            [myString release];
             
             
             
@@ -451,7 +431,6 @@
             cell.textLabel.text = @"XIMPIM - U.S. Import and Export Price Indexes";
             cell.detailTextLabel.text = [self flattenHTMLForSubTitle:myString];;
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            [myString release];
             
             
         }
@@ -479,7 +458,6 @@
                                 cancelButtonTitle:@"Ok"
                                 otherButtonTitles:nil];
         [myAlert show];
-        [myAlert release];
     } 
     else
     {
@@ -490,7 +468,6 @@
             {
                 DetailEtaNumberView    *detail=[[DetailEtaNumberView alloc]init];
                 [self.navigationController pushViewController:detail animated:YES];
-                [detail release];
 
             }
                 break;
@@ -506,7 +483,6 @@
                         myAppDelegate.flag=0;
                         DetailNumberNewsView *detail=[[DetailNumberNewsView alloc]init];
                         [self.navigationController pushViewController:detail animated:YES];
-                        [detail release];
                     }
                     else if(indexPath.row==1)
                     {
@@ -515,7 +491,6 @@
                         myAppDelegate.flag=1;
                         DetailNumberNewsView *detail=[[DetailNumberNewsView alloc]init];
                         [self.navigationController pushViewController:detail animated:YES];
-                        [detail release];
                         
                     }
                     else if(indexPath.row==2)
@@ -526,7 +501,6 @@
                         
                         DetailNumberNewsView *detail=[[DetailNumberNewsView alloc]init];
                         [self.navigationController pushViewController:detail animated:YES];
-                        [detail release];
                         
                         
                     }
@@ -538,7 +512,6 @@
                         
                         DetailNumberNewsView *detail=[[DetailNumberNewsView alloc]init];
                         [self.navigationController pushViewController:detail animated:YES];
-                        [detail release];
                         
                         
                         
@@ -552,7 +525,6 @@
                         
                         DetailNumberNewsView *detail=[[DetailNumberNewsView alloc]init];
                         [self.navigationController pushViewController:detail animated:YES];
-                        [detail release];
                         
                         
                     }

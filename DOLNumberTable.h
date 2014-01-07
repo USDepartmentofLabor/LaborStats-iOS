@@ -16,7 +16,7 @@
 #define kLabelRect			CGRectMake(10.0, 8.0, 275.0, 20.0)
 
 // You need to supply your own API key and secret.  You can get yours at http://developer.dol.gov
-#define API_KEY @"2bc4aa85-4d4e-4e33-820e-5ddbc7a1c237"
+#define API_KEY @""
 #define API_SECRET @""
 #define API_HOST @"http://api.dol.gov"
 #define API_URL @"/V1"
@@ -87,28 +87,28 @@
     
         
     }
-    @property (nonatomic, retain) NSMutableArray *blsNumbers;
-    @property (nonatomic, retain) NSMutableArray *blsIndexes;
-    @property (nonatomic, retain) NSMutableArray *etaNumbers;
-    @property (nonatomic, retain) NSMutableArray *etaIndexes;
-@property (nonatomic, retain) NSMutableArray *val;
-@property (nonatomic, retain) NSMutableArray *holderArray;
+    @property (nonatomic, strong) NSMutableArray *blsNumbers;
+    @property (nonatomic, strong) NSMutableArray *blsIndexes;
+    @property (nonatomic, strong) NSMutableArray *etaNumbers;
+    @property (nonatomic, strong) NSMutableArray *etaIndexes;
+@property (nonatomic, strong) NSMutableArray *val;
+@property (nonatomic, strong) NSMutableArray *holderArray;
 
-@property (nonatomic, retain) NSMutableArray *holderArray1;
+@property (nonatomic, strong) NSMutableArray *holderArray1;
 
- @property (nonatomic, retain)NSString *displayweek;
+ @property (nonatomic, strong)NSString *displayweek;
  
 
     
-    @property (nonatomic, retain) NSMutableArray *selectedArrayForBlsNumbers;
-    @property (nonatomic, retain) NSMutableArray *selectedArrayForEtaNumbers;
+    @property (nonatomic, strong) NSMutableArray *selectedArrayForBlsNumbers;
+    @property (nonatomic, strong) NSMutableArray *selectedArrayForEtaNumbers;
 
     
-    @property (nonatomic, retain) UIImage *selectedImage;
-    @property (nonatomic, retain) UIImage *unselectedImage;
+    @property (nonatomic, strong) UIImage *selectedImage;
+    @property (nonatomic, strong) UIImage *unselectedImage;
 
-    @property(nonatomic, retain)NSArray *arrayOfResults;
-    @property(nonatomic, retain)GOVDataRequest *dataRequest;
+    @property(nonatomic, strong)NSArray *arrayOfResults;
+    @property(nonatomic, strong)GOVDataRequest *dataRequest;
     
     @property BOOL inPseudoEditMode;
     

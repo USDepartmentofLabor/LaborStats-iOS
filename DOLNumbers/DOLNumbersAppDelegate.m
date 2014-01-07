@@ -85,16 +85,5 @@
      */
 }
 
-- (void)dealloc
-{
-    [_window release];
-    [_tabBarController release];
-    [newsText release];
-    [newsDetailText release];
-    [link release];
-    [pdflink release];
-    [safarilink release];
-    [super dealloc];
-}
 
 @end

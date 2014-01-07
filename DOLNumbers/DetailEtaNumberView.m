@@ -24,7 +24,6 @@
         myAppDelegate.webflag=2;
         DOLNewsWebView *dolNews=[[DOLNewsWebView alloc]init];
         [self.navigationController pushViewController:dolNews animated:YES];
-        [dolNews release];
     }
     
 }
@@ -36,7 +35,6 @@
                                                                  delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"Open in Safari",nil];
         actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
         [actionSheet showFromToolbar:_toolbar];
-        [actionSheet release];	
         
    }
 
@@ -49,10 +47,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -97,12 +91,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    [firstTitle release];
-    [date release];
-    [secondTitle release];
-    [firstDetailText release];
-    [secondDetailText release];
-    [_toolbar release];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

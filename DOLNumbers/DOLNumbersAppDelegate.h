@@ -19,13 +19,13 @@
 
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
-@property (nonatomic, retain) IBOutlet NSString *newsText;
-@property (nonatomic, retain) IBOutlet NSString *newsDetailText;
-@property (nonatomic, retain) IBOutlet NSString *link;
-@property (nonatomic, retain) IBOutlet NSString *pdflink;
-@property (nonatomic, retain) IBOutlet NSString *safarilink;
+@property (nonatomic, strong) IBOutlet UIWindow *window;
+@property (nonatomic, strong) IBOutlet UITabBarController *tabBarController;
+@property (nonatomic, strong) IBOutlet NSString *newsText;
+@property (nonatomic, strong) IBOutlet NSString *newsDetailText;
+@property (nonatomic, strong) IBOutlet NSString *link;
+@property (nonatomic, strong) IBOutlet NSString *pdflink;
+@property (nonatomic, strong) IBOutlet NSString *safarilink;
 @property(nonatomic)int flag;
 @property(nonatomic)int webflag;
 

@@ -8,7 +8,7 @@
 {
     NSMutableArray *dictionaryStack;
     NSMutableString *textInProgress;
-    NSError **errorPointer;
+    NSError *_errorPointer;
 }
 
 + (NSDictionary *)dictionaryForXMLData:(NSData *)data error:(NSError **)errorPointer;

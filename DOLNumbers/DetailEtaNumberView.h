@@ -23,11 +23,11 @@
     IBOutlet UITextView *secondDetailText;
     
 }
-@property(nonatomic,retain)IBOutlet UILabel *firstTitle;
-@property(nonatomic,retain)IBOutlet UILabel *date;
-@property(nonatomic,retain)IBOutlet UILabel *secondTitle;
-@property(nonatomic,retain)IBOutlet UITextView *firstDetailText;
-@property(nonatomic,retain)IBOutlet UITextView *secondDetailText;
-@property (nonatomic, retain) IBOutlet UIToolbar * toolbar;
+@property(nonatomic,strong)IBOutlet UILabel *firstTitle;
+@property(nonatomic,strong)IBOutlet UILabel *date;
+@property(nonatomic,strong)IBOutlet UILabel *secondTitle;
+@property(nonatomic,strong)IBOutlet UITextView *firstDetailText;
+@property(nonatomic,strong)IBOutlet UITextView *secondDetailText;
+@property (nonatomic, strong) IBOutlet UIToolbar * toolbar;
 
 @end

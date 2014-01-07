@@ -49,7 +49,6 @@
 								cancelButtonTitle:@"Ok"
 								otherButtonTitles:nil];
 		[myAlert show];
-		[myAlert release];
 	} 
     else
     {
@@ -145,34 +144,18 @@
                         initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
         
         self.navigationItem.rightBarButtonItem = refreshButton;
-        [refreshButton release];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [super dealloc];
-    [blsNumbers release];
-    [blsIndexes release];
-    [etaNumbers release];
-    [etaIndexes release];
-    [displayweek release];
-    [doneEditButton release];
-    [spinner release];
-    [val release];
-    [holderArray release];
-    [holderArray1 release];
     
     
-    [selectedArrayForBlsNumbers release];
-    [selectedArrayForEtaNumbers release] ;
+     ;
     
     
-    [selectedImage release];
-    [unselectedImage release];
     
-    [arrayOfResults release];
     
     
     
@@ -255,8 +238,6 @@
                 }
             
             
-            [indexPathsInEta release];
-            [rowsToBeDeletedInEta release];
             
             [self populateSelectedArrayForEta];
             [self saveToUserDefaultsEta:etaNumbers];
@@ -299,8 +280,6 @@
             
             
             
-            [indexPathsInBls release];
-            [rowsToBeDeletedInBls release];
             
             [self populateSelectedArrayForBls];
             inPseudoEditMode = NO;
@@ -395,7 +374,6 @@
 		[array addObject:[NSNumber numberWithBool:YES]];
     }
 	self.selectedArrayForBlsNumbers = array;
-	[array release];
     
 }
 
@@ -406,7 +384,6 @@
 		[array addObject:[NSNumber numberWithBool:YES]];
     }
 	self.selectedArrayForEtaNumbers = array;
-	[array release];
 }
 
 
@@ -433,7 +410,6 @@
     [components setDay:finalDay1];
     }
     NSDate *yesterday = [cal dateByAddingComponents:components toDate:today options:0];
-    [components release];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
@@ -441,8 +417,6 @@
     [dateFormatter setDateFormat:@"YYYY-MM-dd"];
     [df setDateFormat:@" dd MMMM, yyyy"];
     NSString *currentweek = [dateFormatter stringFromDate:yesterday];
-    [dateFormatter release];
-    [df release];
     
     NSDictionary *arguments = [NSDictionary dictionaryWithObject: [NSString stringWithFormat:@"week eq datetime'%@T00:00:00'",currentweek] forKey:@"filter"];
     
@@ -593,7 +567,6 @@
     [dateFormatter setDateFormat:@"MM"];
     month = [[dateFormatter stringFromDate:[NSDate date]] intValue];
     
-    [dateFormatter release];
     qtr=4;
     day=0;
 
@@ -622,7 +595,6 @@
 								cancelButtonTitle:@"Ok"
 								otherButtonTitles:nil];
 		[myAlert show];
-		[myAlert release];
 	} 
     else
     {
@@ -746,8 +718,6 @@
     [view addSubview:imgView];
     [view addSubview:label1];
     
-    [imgView release];
-    [label1 release];
     return view;
     
     
@@ -814,21 +784,19 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         
         
         label = [[UILabel alloc] initWithFrame:kLabelRect];
 		label.tag = kCellLabelTag;
 		[cell.contentView addSubview:label];	
         cell.detailTextLabel.backgroundColor=[UIColor clearColor];
-        [label release];
 		
 		imageView = [[UIImageView alloc] initWithImage:unselectedImage];
 		imageView.frame = CGRectMake(5.0, 6.0, 23.0, 23.0);
 		[cell.contentView addSubview:imageView];
 		imageView.hidden = !inPseudoEditMode;
 		imageView.tag = kCellImageViewTag;
-		[imageView release];
     }
     
     
@@ -1683,7 +1651,6 @@
         [components setDay:finalDay1];
         NSDate *yesterday = [cal dateByAddingComponents:components toDate:today options:0];
         
-        [components release];
         
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
         
@@ -1691,7 +1658,6 @@
         NSString *gbweek = [df stringFromDate:yesterday];
         
         
-        [df release];
         
         
         
@@ -2973,10 +2939,10 @@
 }
 
 
--(void)govDataRequest:(GOVDataRequest *)request didCompleteWithResults:(NSArray *)resultsArray {
+-(void)govDataRequest:(GOVDataRequest *)request didCompleteWithResults:(NSArray *)resultsArray andResponseTime:(float)timeInMS {
     
     
-    self.arrayOfResults = [resultsArray retain];
+    self.arrayOfResults = resultsArray;
     
     if(flag==0)
     {
@@ -3381,11 +3347,10 @@
     
     [alert show];
     
-    [alert release];
     
 }
 
--(void)govDataRequest:(GOVDataRequest *)request didCompleteWithDictionaryResults:(NSDictionary *)resultsDictionary {
+-(void)govDataRequest:(GOVDataRequest *)request didCompleteWithDictionaryResults:(NSDictionary *)resultsDictionary andResponseTime:(float)timeInMS {
     
     
     NSLog(@"Got a Dictionary");
@@ -3397,7 +3362,7 @@
 	//[self.tableView reloadData];
 }
 
--(void)govDataRequest:(GOVDataRequest *)request didCompleteWithUnParsedResults:(NSString *)resultsString {
+-(void)govDataRequest:(GOVDataRequest *)request didCompleteWithUnParsedResults:(NSString *)resultsString andResponseTime:(float)timeInMS {
     
     NSLog(@"Got data that was likely not formatted properly");
     //NSLog(@"%@", resultsString);

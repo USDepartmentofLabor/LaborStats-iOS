@@ -12,7 +12,7 @@
 
     
 }
-@property(nonatomic,retain)IBOutlet UIWebView *webView;
+@property(nonatomic,strong)IBOutlet UIWebView *webView;
 
 
 

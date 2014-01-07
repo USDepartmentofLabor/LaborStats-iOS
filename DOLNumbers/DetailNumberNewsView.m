@@ -25,14 +25,12 @@
         myAppDelegate.webflag=0;
         DOLNewsWebView *dolNews=[[DOLNewsWebView alloc]init];
         [self.navigationController pushViewController:dolNews animated:YES];
-        [dolNews release];
        }
         if(buttonIndex == 1){
             
              myAppDelegate.webflag=1;
             DOLNewsWebView *dolNews=[[DOLNewsWebView alloc]init];
             [self.navigationController pushViewController:dolNews animated:YES];
-            [dolNews release];
         }
         
 	
@@ -45,7 +43,6 @@
 															 delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Open as PDF",@"Open in Safari",nil];
 	actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
 	[actionSheet showFromToolbar:_toolbar];
-	[actionSheet release];	
     
 }
 
@@ -58,10 +55,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -266,7 +259,6 @@
 
         NSString *pdflink= [self flattenHTMLForPdfLink:myString];
         myAppDelegate.pdflink=pdflink;
-         [myString release];
     }
     else if (myAppDelegate.flag==1) {
         url = [NSURL URLWithString:@"http://www.bls.gov/include/govdelivery/empsit.rss"];
@@ -288,7 +280,6 @@
         myAppDelegate.safarilink=safarilink;
         NSString *pdflink= [self flattenHTMLForPdfLink:myString];
         myAppDelegate.pdflink=pdflink;
-        [myString release];
 
     }
     else if (myAppDelegate.flag==3) {
@@ -300,7 +291,6 @@
         myAppDelegate.safarilink=safarilink;
         NSString *pdflink= [self flattenHTMLForPdfLink:myString];
         myAppDelegate.pdflink=pdflink;
-        [myString release];
 
     }
     else if (myAppDelegate.flag==4) {
@@ -312,7 +302,6 @@
         myAppDelegate.safarilink=safarilink;
         NSString *pdflink= [self flattenHTMLForPdfLink:myString];
         myAppDelegate.pdflink=pdflink;
-        [myString release];
 
     }
     
@@ -363,12 +352,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    [firstTitle release];
-    [date release];
-    [secondTitle release];
-    [firstDetailText release];
-    [secondDetailText release];
-    [_toolbar release];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

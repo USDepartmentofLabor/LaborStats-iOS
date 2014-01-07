@@ -2,49 +2,39 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F88AEC65-1562-4625-BFC3-DDD6B3E6EB50</string>
+	<string>0959DD1F-FEEF-42C9-9BCA-18B1E88D8642</string>
 	<key>IDESourceControlProjectName</key>
 	<string>DOLNumbers</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>5A7C7C88-62D0-44EB-AF40-AB3DA1D43A20</key>
-		<string>ssh://github.com//USDepartmentofLabor/DOLDataSDK-iOS.git</string>
-		<key>E77DE9B3-24A9-45AA-A967-BBB940149EA9</key>
-		<string>ssh://github.com//USDepartmentofLabor/LaborStats-iOS</string>
+		<key>A7C33A57-C518-47A1-871F-A76CBDD74947</key>
+		<string>ssh://github.com/USDepartmentofLabor/LaborStats-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>DOLNumbers.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>5A7C7C88-62D0-44EB-AF40-AB3DA1D43A20</key>
-		<string>../../DOLNumbers/DOLDataSDK-iOS</string>
-		<key>E77DE9B3-24A9-45AA-A967-BBB940149EA9</key>
+		<key>A7C33A57-C518-47A1-871F-A76CBDD74947</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com//USDepartmentofLabor/LaborStats-iOS</string>
+	<string>ssh://github.com/USDepartmentofLabor/LaborStats-iOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E77DE9B3-24A9-45AA-A967-BBB940149EA9</string>
+	<string>A7C33A57-C518-47A1-871F-A76CBDD74947</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E77DE9B3-24A9-45AA-A967-BBB940149EA9</string>
+			<string>A7C33A57-C518-47A1-871F-A76CBDD74947</string>
 			<key>IDESourceControlWCCName</key>
 			<string>LaborStats-iOS</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5A7C7C88-62D0-44EB-AF40-AB3DA1D43A20</string>
-			<key>IDESourceControlWCCName</key>
-			<string>DOLDataSDK-iOS</string>
 		</dict>
 	</array>
 </dict>

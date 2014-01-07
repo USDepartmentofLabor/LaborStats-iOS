@@ -23,10 +23,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -75,7 +71,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    [webView release];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
