@@ -1659,9 +1659,19 @@
         
         
         
+        // Format the number with a comma
+       // NSNumber *etaNumber = [NSNumber numberWithDouble:(double)[etaresult objectForKey:@"seasonallyAdjustedInitialClaims"]];
+        
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        NSNumber * etaNumber = (NSNumber *)[etaresult objectForKey:@"seasonallyAdjustedInitialClaims"];
+        //NSNumber *etaNumber = [f numberFromString:etaNumberString];
+        [f setNumberStyle:kCFNumberFormatterDecimalStyle];
+        [f setGroupingSeparator:@","];
+        NSString * commaString = [f stringForObjectValue:etaNumber];
         
         
-        NSString *ses=[NSString stringWithFormat:@"%@ in the week ending%@", (NSString *)[etaresult objectForKey:@"seasonallyAdjustedInitialClaims"],gbweek];
+//        NSString *ses=[NSString stringWithFormat:@"%@ in the week ending%@", (NSString *)[etaresult objectForKey:@"seasonallyAdjustedInitialClaims"],gbweek];
+        NSString *ses=[NSString stringWithFormat:@"%@ in the week ending%@", commaString,gbweek];
         NSString *test=[NSString stringWithFormat:@"%@", (NSString *)[etaresult objectForKey:@"seasonallyAdjustedInitialClaims"]];
         
         
@@ -2971,6 +2981,9 @@
                     finalDay1=day;
                 }
                 flag=1;
+                // Assert that the year is this year.  Subsequent logic turns back the clock if necessary.
+                NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+                year = [components year];
                 [self ifNoValuesInCpiArray];
                 
             }
@@ -3000,12 +3013,16 @@
                 
                 
                 cpiresult = (NSDictionary *)[arrayOfResults objectAtIndex:0];
+                NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+                year = [components year];
                 [self ifNoValuesInURArray];
                 
             }
         }
+        // if the result count is 0
         else
         {
+            // as long as the month isn't 0, go back one month
             if (!month==0) {
                 month--;
                 [self ifNoValuesInCpiArray];
@@ -3027,7 +3044,7 @@
     
     else  if(flag==2)
     {
-        if(![arrayOfResults count]==0)
+       if(![arrayOfResults count]==0)
         {
             flag=3;
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -3040,7 +3057,10 @@
                 
                 
                 urresult = (NSDictionary *)[arrayOfResults objectAtIndex:0];
-                [self ifNoValuesInPEArray];
+                // Assert that the year is this year.  Subsequent logic turns back the clock if necessary.
+                NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+                year = [components year];
+               [self ifNoValuesInPEArray];
                 
             }
         }
@@ -3075,6 +3095,9 @@
                 
                 
                 peresult = (NSDictionary *)[arrayOfResults objectAtIndex:0];
+                // Assert that the year is this year.  Subsequent logic turns back the clock if necessary.
+                NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+                year = [components year];
                 [self ifNoValuesInAHEArray];
                 
             }
@@ -3110,6 +3133,9 @@
                 
                 
                 aheresult = (NSDictionary *)[arrayOfResults objectAtIndex:0];
+                // Assert that the year is this year.  Subsequent logic turns back the clock if necessary.
+                NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+                year = [components year];
                 [self ifNoValuesInPPIArray];
                 
             }
@@ -3145,6 +3171,9 @@
                 
                 
                 ppiresult = (NSDictionary *)[arrayOfResults objectAtIndex:0];
+                // Assert that the year is this year.  Subsequent logic turns back the clock if necessary.
+                NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+                year = [components year];
                 [self ifNoValuesInUSIArray];
                 
             }
@@ -3181,6 +3210,9 @@
                 
                 
                 usiresult = (NSDictionary *)[arrayOfResults objectAtIndex:0];
+                // Assert that the year is this year.  Subsequent logic turns back the clock if necessary.
+                NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+                year = [components year];
                 [self ifNoValuesInUSEArray];
                 
             }
@@ -3217,6 +3249,9 @@
                 useresult = (NSDictionary *)[arrayOfResults objectAtIndex:0];
                 qtr=4;
                 
+                // Assert that the year is this year.  Subsequent logic turns back the clock if necessary.
+                NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+                year = [components year];
                 [self ifNoValuesInECIQtrArray];
                 
             }
@@ -3258,6 +3293,9 @@
                 }
                 else
                 {
+                    // Assert that the year is this year.  Subsequent logic turns back the clock if necessary.
+                    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+                    year = [components year];
                 [self ifNoValuesInPROQtrArray];
                 }
                 
@@ -3341,7 +3379,7 @@
         
     {
         
-        alert= [[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+        alert= [[UIAlertView alloc] initWithTitle:@"Error" message:@"Sorry we are unable to access DOL Numbers at this moment. Please try again later." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
         
     }
     
