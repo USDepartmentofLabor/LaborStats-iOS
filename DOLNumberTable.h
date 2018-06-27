@@ -16,9 +16,9 @@
 #define kLabelRect			CGRectMake(10.0, 8.0, 275.0, 20.0)
 
 // You need to supply your own API key and secret.  You can get yours at http://developer.dol.gov
-#define API_KEY @""
+#define API_KEY @"d72ef1bd-6675-4a73-855c-1925efea8616"
 #define API_SECRET @""
-#define API_HOST @"http://api.dol.gov"
+#define API_HOST @"https://api.dol.gov"
 #define API_URL @"/V1"
 
 @interface DOLNumberTable : UITableViewController<GOVDataRequestDelegate> {

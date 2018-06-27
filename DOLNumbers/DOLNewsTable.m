@@ -50,13 +50,17 @@
 	
 	if ((internetStatus != ReachableViaWiFi) && (internetStatus != ReachableViaWWAN))
 	{
-		UIAlertView *myAlert = [[UIAlertView alloc]
-								initWithTitle:@"No Internet Connection" message:@"An Internet connection is required to access DOL Current Numbers. Please try again later."
-								delegate:self
-								cancelButtonTitle:@"Ok"
-								otherButtonTitles:nil];
-		[myAlert show];
-	} 
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"No Internet Connection"
+                                                                       message:@"An Internet connection is required to access DOL Current Numbers. Please try again later."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }
     else
     {
         
@@ -149,13 +153,17 @@
 	
 	if ((internetStatus != ReachableViaWiFi) && (internetStatus != ReachableViaWWAN))
 	{
-		UIAlertView *myAlert = [[UIAlertView alloc]
-								initWithTitle:@"No Internet Connection" message:@"An Internet connection is required to access DOL Current Numbers. Please try again later."
-								delegate:self
-								cancelButtonTitle:@"Ok"
-								otherButtonTitles:nil];
-		[myAlert show];
-	} 
+       
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"No Internet Connection"
+                                                                       message:@"An Internet connection is required to access DOL Current Numbers. Please try again later."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+	}
     else
     {
         
@@ -302,12 +310,21 @@
     
 	if ((internetStatus != ReachableViaWiFi) && (internetStatus != ReachableViaWWAN))
 	{
-		UIAlertView *myAlert = [[UIAlertView alloc]
-								initWithTitle:@"No Internet Connection" message:@"An Internet connection is required to access DOL News Releases. Please try again later."
-								delegate:self
-								cancelButtonTitle:@"Ok"
-								otherButtonTitles:nil];
-		[myAlert show];
+//        UIAlertView *myAlert = [[UIAlertController alloc]
+//                                initWithTitle:@"No Internet Connection" message:@"An Internet connection is required to access DOL News Releases. Please try again later."
+//                                delegate:self
+//                                cancelButtonTitle:@"Ok"
+//                                otherButtonTitles:nil];
+//        [myAlert show];
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"No Internet Connection"
+                                                                       message:@"An Internet connection is required to access DOL News Releases. Please try again later."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
 	} 
     else
     {
@@ -318,7 +335,7 @@
         
                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                
-               NSString *str = @"http://www.dol.gov/rss/news-ui.xml";
+               NSString *str = @"https://www.dol.gov/rss/news-ui.xml";
                
                
                NSURL *url = [NSURL URLWithString:str];
@@ -326,7 +343,14 @@
                NSURLResponse *response = NULL;
                NSError *error = NULL;
                
-               
+//               NSURLSession *session = [NSURLSession sharedSession];
+//               [[session dataTaskWithURL:[NSURL URLWithString:londonWeatherUrl]
+//                       completionHandler:^(NSData *data,
+//                                           NSURLResponse *response,
+//                                           NSError *error) {
+//                           // handle response
+//
+//                       }] resume];
                NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
                
                NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -364,7 +388,7 @@
         if(indexPath.row==0)
         {
             
-            NSURL *url = [NSURL URLWithString:@"http://www.bls.gov/include/govdelivery/cpi.rss"];
+            NSURL *url = [NSURL URLWithString:@"https://www.bls.gov/include/govdelivery/cpi.rss"];
             
             NSData *data = [NSData dataWithContentsOfURL:url];
             NSString *myString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -381,7 +405,7 @@
         }
         else if(indexPath.row==1)
         {
-            NSURL *url = [NSURL URLWithString:@"http://www.bls.gov/include/govdelivery/empsit.rss"];
+            NSURL *url = [NSURL URLWithString:@"https://www.bls.gov/include/govdelivery/empsit.rss"];
             
             NSData *data = [NSData dataWithContentsOfURL:url];
             NSString *myString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -394,7 +418,7 @@
         else if(indexPath.row==2)
         {
             
-            NSURL *url = [NSURL URLWithString:@"http://www.bls.gov/include/govdelivery/ppi.rss"];
+            NSURL *url = [NSURL URLWithString:@"https://www.bls.gov/include/govdelivery/ppi.rss"];
             
             NSData *data = [NSData dataWithContentsOfURL:url];
             NSString *myString = [[NSString alloc] initWithData:data
@@ -408,7 +432,7 @@
             
         }
         else if(indexPath.row==3)     {
-            NSURL *url = [NSURL URLWithString:@"http://www.bls.gov/include/govdelivery/prod2.rss"];
+            NSURL *url = [NSURL URLWithString:@"https://www.bls.gov/include/govdelivery/prod2.rss"];
             
             NSData *data = [NSData dataWithContentsOfURL:url];
             NSString *myString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -423,7 +447,7 @@
         }
         else if(indexPath.row==4)
         {
-            NSURL *url = [NSURL URLWithString:@"http://www.bls.gov/include/govdelivery/ximpim.rss"];
+            NSURL *url = [NSURL URLWithString:@"https://www.bls.gov/include/govdelivery/ximpim.rss"];
             
             NSData *data = [NSData dataWithContentsOfURL:url];
             NSString *myString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -452,12 +476,15 @@
     
     if ((internetStatus != ReachableViaWiFi) && (internetStatus != ReachableViaWWAN))
     {
-        UIAlertView *myAlert = [[UIAlertView alloc]
-                                initWithTitle:@"No Internet Connection" message:@"An Internet connection is required to access DOL News Releases. Please try again later."
-                                delegate:self
-                                cancelButtonTitle:@"Ok"
-                                otherButtonTitles:nil];
-        [myAlert show];
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"No Internet Connection"
+                                                                       message:@"An Internet connection is required to access DOL News Releases. Please try again later."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
     } 
     else
     {

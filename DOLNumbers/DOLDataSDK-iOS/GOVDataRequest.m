@@ -55,7 +55,7 @@
     if (self.context.APIHost == nil || self.context.APIURL == nil) {
         [self.delegate govDataRequest:self didCompleteWithError:@"A valid context object was not provided."];
         return;
-    } else if ([self.context.APIHost isEqualToString:@"http://api.dol.gov"]) {
+    } else if ([self.context.APIHost isEqualToString:@"https://api.dol.gov"]) {
         // Checks required for DOL's API
         if (self.context.APIKey == nil || self.context.SharedSecret == nil) {
             [self.delegate govDataRequest:self didCompleteWithError:@"A valid context object was not provided."];
@@ -73,17 +73,17 @@
     
     
     // Where appropriate, add the key.
-    if ([self.context.APIHost isEqualToString:@"http://api.dol.gov"]) {
+    if ([self.context.APIHost isEqualToString:@"https://api.dol.gov"]) {
         [queryString appendFormat:@"?KEY=%@", [self.context.APIKey urlEncoded]];
-    } else if ([self.context.APIHost isEqualToString:@"http://api.census.gov"] ||
-               [self.context.APIHost isEqualToString:@"http://pillbox.nlm.nih.gov"]){
+    } else if ([self.context.APIHost isEqualToString:@"https://api.census.gov"] ||
+               [self.context.APIHost isEqualToString:@"https://pillbox.nlm.nih.gov"]){
         [queryString appendFormat:@"?key=%@", self.context.APIKey];
-    } else if ([self.context.APIHost isEqualToString:@"http://api.eia.gov"]
-               || [self.context.APIHost isEqualToString:@"http://developer.nrel.gov"]
-               || [self.context.APIHost isEqualToString:@"http://api.stlouisfed.org"]
-               || [self.context.APIHost isEqualToString:@"http://healthfinder.gov"]){
+    } else if ([self.context.APIHost isEqualToString:@"https://api.eia.gov"]
+               || [self.context.APIHost isEqualToString:@"https://developer.nrel.gov"]
+               || [self.context.APIHost isEqualToString:@"https://api.stlouisfed.org"]
+               || [self.context.APIHost isEqualToString:@"https://healthfinder.gov"]){
         [queryString appendFormat:@"?api_key=%@", self.context.APIKey];
-    } else if ([self.context.APIHost isEqualToString:@"http://www.ncdc.noaa.gov"]){
+    } else if ([self.context.APIHost isEqualToString:@"https://www.ncdc.noaa.gov"]){
         [queryString appendFormat:@"?token=%@", self.context.APIKey];
     } else if ([self.context.APIHost isEqualToString:@"https://go.usa.gov"]){
         // do nothing for now
@@ -94,7 +94,7 @@
         NSString *value = [arguments objectForKey:key];
         
         // Contstruct arguments part of query string for DOL's API
-        if ([self.context.APIHost isEqualToString:@"http://api.dol.gov"]) {
+        if ([self.context.APIHost isEqualToString:@"https://api.dol.gov"]) {
       //      NSLog(@"Host is DOL!");
             //Build argument querystring. Process only valid arguments and ignore the rest
             if ([key isEqualToString:@"top"] || [key isEqualToString:@"skip"] || [key isEqualToString:@"select"]
@@ -102,14 +102,14 @@
                 //Add to querystring
                 
                 //Append the argument to the querystring we are building
-                [queryString appendFormat:@"&$%@=%@",key, [value urlEncoded]];
+                [queryString appendFormat:@"&%@=%@",key, [value urlEncoded]];
             } else if ([key isEqualToString:@"format"] || [key isEqualToString:@"query"] ||[key isEqualToString:@"region"] ||[key isEqualToString:@"locality"] ||[key isEqualToString:@"skipcount"]){
                 //Add to querystring
                 
                 [queryString appendFormat:@"&%@=%@",key, [value urlEncoded]];
             }
-        } else if ([self.context.APIHost isEqualToString:@"http://api.census.gov"] ||
-                   [self.context.APIHost isEqualToString:@"http://pillbox.nlm.nih.gov"]){
+        } else if ([self.context.APIHost isEqualToString:@"https://api.census.gov"] ||
+                   [self.context.APIHost isEqualToString:@"https://pillbox.nlm.nih.gov"]){
             /*
              CENSUS.GOV API
              NIH Pillbox
@@ -117,10 +117,10 @@
             
             //add subsequent arguments
             [queryString appendFormat:@"&%@=%@",key, [value urlEncoded]];
-        } else if ([self.context.APIHost isEqualToString:@"http://api.eia.gov"]
-                   || [self.context.APIHost isEqualToString:@"http://developer.nrel.gov"]
-                   || [self.context.APIHost isEqualToString:@"http://api.stlouisfed.org"]
-                   || [self.context.APIHost isEqualToString:@"http://healthfinder.gov"]){
+        } else if ([self.context.APIHost isEqualToString:@"https://api.eia.gov"]
+                   || [self.context.APIHost isEqualToString:@"https://developer.nrel.gov"]
+                   || [self.context.APIHost isEqualToString:@"https://api.stlouisfed.org"]
+                   || [self.context.APIHost isEqualToString:@"https://healthfinder.gov"]){
             /*
              Energy EIA API (beta)
              Energy NREL
@@ -131,7 +131,7 @@
             // if it's the first argument, add the API key and the first argument
             //add subsequent arguments
             [queryString appendFormat:@"&%@=%@",key, [value urlEncoded]];
-        } else if ([self.context.APIHost isEqualToString:@"http://www.ncdc.noaa.gov"]){
+        } else if ([self.context.APIHost isEqualToString:@"https://www.ncdc.noaa.gov"]){
             /*
              NOAA National Climatic Data Center
              */

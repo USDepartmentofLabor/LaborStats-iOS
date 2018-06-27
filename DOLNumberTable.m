@@ -43,12 +43,15 @@
 	
 	if ((internetStatus != ReachableViaWiFi) && (internetStatus != ReachableViaWWAN))
 	{
-		UIAlertView *myAlert = [[UIAlertView alloc]
-								initWithTitle:@"No Internet Connection" message:@"An Internet connection is required to access DOL Current Numbers. Please try again later."
-								delegate:self
-								cancelButtonTitle:@"Ok"
-								otherButtonTitles:nil];
-		[myAlert show];
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"No Internet Connection"
+                                                      message:@"An Internet connection is required to access DOL Current Numbers. Please try again later."
+                                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
 	} 
     else
     {
@@ -394,7 +397,7 @@
     NSCalendar *cal = [NSCalendar currentCalendar];
     
     NSDate *date = [NSDate date];
-    NSDateComponents *comps = [cal components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) 
+    NSDateComponents *comps = [cal components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay)
                                      fromDate:date];
     NSDate *today = [cal dateFromComponents:comps];
     NSDateComponents *components = [[NSDateComponents alloc] init];
@@ -589,12 +592,15 @@
 	
 	if ((internetStatus != ReachableViaWiFi) && (internetStatus != ReachableViaWWAN))
 	{
-		UIAlertView *myAlert = [[UIAlertView alloc]
-								initWithTitle:@"No Internet Connection" message:@"An Internet connection is required to access DOL Current Numbers. Please try again later."
-								delegate:self
-								cancelButtonTitle:@"Ok"
-								otherButtonTitles:nil];
-		[myAlert show];
+		UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"No Internet Connection"
+                                                      message:@"An Internet connection is required to access DOL Current Numbers. Please try again later."
+                                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
 	} 
     else
     {
@@ -3318,7 +3324,7 @@
     }
     else  if(flag==9)
     {
-        if(![arrayOfResults count]==0)
+        if([arrayOfResults count]!==0)
         {
             if ([[[[resultsArray objectAtIndex:0]objectForKey:@"__metadata"]objectForKey:@"type"]  isEqual: @"BLS_NumbersModel.productivity"])
             {
@@ -3330,7 +3336,7 @@
         }
         else
         {
-            if (!qtr==0) {
+            if (qtr!==0) {
                 qtr--;
                 [self ifNoValuesInPROQtrArray];
             }
@@ -3354,37 +3360,31 @@
 
 -(void)govDataRequest:(GOVDataRequest *)request didCompleteWithError:(NSString *)error {
     
-    UIAlertView *alert;
+
+    UIAlertController* alert;
     
     day=0;
     finalDay1=0;
     
-    if([error isEqualToString:@"Authentication needed"])
-        
-    {
-        
-        alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Sorry we are unable to access DOL Numbers at this moment. Please try again later." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-        
-    }
-    
-    else if([error isEqualToString:@"A connection failure occurred"])
-        
-    {
-        
-        alert = [[UIAlertView alloc] initWithTitle:@"No Internet Connection" message:@"An Internet connection is required to access DOL Current Numbers. Please try again later." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-        
-    }
-    
-    else
-        
-    {
-        
-        alert= [[UIAlertView alloc] initWithTitle:@"Error" message:@"Sorry we are unable to access DOL Numbers at this moment. Please try again later." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+    if([error isEqualToString:@"Authentication needed"]){
+       alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                              message:@"Sorry we are unable to access DOL Numbers at this moment. Please try again later."
+                                       preferredStyle:UIAlertControllerStyleAlert];
+    }else if([error isEqualToString:@"A connection failure occurred"]){
+        alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                 message:@"An Internet connection is required to access DOL Current Numbers. Please try again later."
+                                             preferredStyle:UIAlertControllerStyleAlert];
+    }else{
+        alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                    message:@"Sorry we are unable to access DOL Numbers at this moment. Please try again later."
+                                    preferredStyle:UIAlertControllerStyleAlert];
         
     }
     
-    [alert show];
-    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault                                                              handler:^(UIAlertAction * action) {}];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+
     
 }
 
