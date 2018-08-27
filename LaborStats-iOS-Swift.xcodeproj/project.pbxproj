@@ -12,6 +12,7 @@
 		D83EA6DC212F4E4100D5459B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83EA6DA212F4E4100D5459B /* Main.storyboard */; };
 		D83EA6DE212F4E4200D5459B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D83EA6DD212F4E4200D5459B /* Assets.xcassets */; };
 		D83EA6E1212F4E4200D5459B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83EA6DF212F4E4200D5459B /* LaunchScreen.storyboard */; };
+		D87909EE21408CA00054A7BA /* GetDOLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87909ED21408CA00054A7BA /* GetDOLData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		D83EA6DD212F4E4200D5459B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D83EA6E0212F4E4200D5459B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D83EA6E2212F4E4200D5459B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D87909ED21408CA00054A7BA /* GetDOLData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GetDOLData.swift; path = ../../../../practice/Testing/Testing/GetDOLData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,47 @@
 		D83EA6D5212F4E4000D5459B /* LaborStats-iOS-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				D83EA6D6212F4E4000D5459B /* AppDelegate.swift */,
-				D83EA6D8212F4E4100D5459B /* ViewController.swift */,
-				D83EA6DA212F4E4100D5459B /* Main.storyboard */,
-				D83EA6DD212F4E4200D5459B /* Assets.xcassets */,
-				D83EA6DF212F4E4200D5459B /* LaunchScreen.storyboard */,
 				D83EA6E2212F4E4200D5459B /* Info.plist */,
+				D8FC966B213456290054735A /* Supporting Files */,
+				D8FC966A213456100054735A /* View */,
+				D8FC9669213456080054735A /* Model */,
+				D8818DEA21345541003829B4 /* Controller */,
 			);
 			path = "LaborStats-iOS-Swift";
+			sourceTree = "<group>";
+		};
+		D8818DEA21345541003829B4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D83EA6D8212F4E4100D5459B /* ViewController.swift */,
+				D83EA6D6212F4E4000D5459B /* AppDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D8FC9669213456080054735A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D87909ED21408CA00054A7BA /* GetDOLData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D8FC966A213456100054735A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D83EA6DF212F4E4200D5459B /* LaunchScreen.storyboard */,
+				D83EA6DD212F4E4200D5459B /* Assets.xcassets */,
+				D83EA6DA212F4E4100D5459B /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D8FC966B213456290054735A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +172,7 @@
 			files = (
 				D83EA6D9212F4E4100D5459B /* ViewController.swift in Sources */,
 				D83EA6D7212F4E4000D5459B /* AppDelegate.swift in Sources */,
+				D87909EE21408CA00054A7BA /* GetDOLData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
