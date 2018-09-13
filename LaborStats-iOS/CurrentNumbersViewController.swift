@@ -26,7 +26,8 @@ class CurrentNumbersViewController: UIViewController, UITableViewDelegate, UITab
     
     // Constant that holds label names that is displayed in the table cell
     let list = ["Consumer Price Index", "Unemployment Rate", "Average Hourly Earning", "Producer Price Index", "Employment Cost Index", "Productivity", "US Import Price Index", "US Export Price Index"]
-    
+    let defaultValues = ["1123", "345", "55634", "23", "234", "123", "674", "890"]
+
     let urlList = ["consumerPriceIndex1MonthChange",
                    "unemploymentRate",
                    "averageHourlyEarnings1MonthNetChange",
@@ -64,6 +65,7 @@ class CurrentNumbersViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "numbersCell", for: indexPath)
         cell.textLabel?.text = list[indexPath.row]
+        cell.detailTextLabel?.text = defaultValues[indexPath.row]
         return cell
     }
     
