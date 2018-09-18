@@ -41,6 +41,9 @@ class CurrentNumbersViewController: UIViewController, UITableViewDelegate, UITab
     // This array holds the values of all the arrays
     var apiValues = [String]()
     
+    // Activity Indicator
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    
     
     // This function is called when the view loads up
     override func viewDidLoad() {
@@ -51,6 +54,7 @@ class CurrentNumbersViewController: UIViewController, UITableViewDelegate, UITab
         numbersTableView.delegate = self
         numbersTableView.dataSource = self
         loadData()
+        
     }
     
     //MARK: TableView delegate methods
@@ -65,7 +69,6 @@ class CurrentNumbersViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "numbersCell", for: indexPath)
         cell.textLabel?.text = list[indexPath.row]
-        cell.detailTextLabel?.text = defaultValues[indexPath.row]
         return cell
     }
     
@@ -84,7 +87,6 @@ class CurrentNumbersViewController: UIViewController, UITableViewDelegate, UITab
                     let responseArray  = jsonData["d"]["results"]
                     let lastObject = responseArray[responseArray.count - 1]
                     self.addValueToAPIValues(lastObject["value"].doubleValue)
-                    self.numbersTableView.reloadData()
                 }
             }
         }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		71028B1053E29B753978D649 /* Pods_LaborStats_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9418A065206C39CF8C29DE46 /* Pods_LaborStats_iOS.framework */; };
-		D82C065E2146D1AA00392D64 /* DOLDataRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C065D2146D1AA00392D64 /* DOLDataRequestHandler.swift */; };
 		D8C873232146C6190038A057 /* CurrentNumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C873222146C6190038A057 /* CurrentNumbersViewController.swift */; };
 		D8C873252146C6350038A057 /* NewsReleasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C873242146C6350038A057 /* NewsReleasesViewController.swift */; };
 		D8E340412146BBC600A36379 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E340402146BBC600A36379 /* AppDelegate.swift */; };
@@ -21,7 +20,6 @@
 		45B644021F86CBFE585F67E2 /* Pods-LaborStats-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaborStats-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LaborStats-iOS/Pods-LaborStats-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		7D7025A4D73ED58F5B98AC71 /* Pods-LaborStats-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaborStats-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-LaborStats-iOS/Pods-LaborStats-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		9418A065206C39CF8C29DE46 /* Pods_LaborStats_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LaborStats_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D82C065D2146D1AA00392D64 /* DOLDataRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOLDataRequestHandler.swift; sourceTree = "<group>"; };
 		D8C873222146C6190038A057 /* CurrentNumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentNumbersViewController.swift; sourceTree = "<group>"; };
 		D8C873242146C6350038A057 /* NewsReleasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsReleasesViewController.swift; sourceTree = "<group>"; };
 		D8E3403D2146BBC600A36379 /* LaborStats-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LaborStats-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +73,6 @@
 			children = (
 				D8E340402146BBC600A36379 /* AppDelegate.swift */,
 				D8C873222146C6190038A057 /* CurrentNumbersViewController.swift */,
-				D82C065D2146D1AA00392D64 /* DOLDataRequestHandler.swift */,
 				D8C873242146C6350038A057 /* NewsReleasesViewController.swift */,
 				D8E340442146BBC600A36379 /* Main.storyboard */,
 				D8E340472146BBC700A36379 /* Assets.xcassets */,
@@ -210,7 +207,6 @@
 			files = (
 				D8C873232146C6190038A057 /* CurrentNumbersViewController.swift in Sources */,
 				D8C873252146C6350038A057 /* NewsReleasesViewController.swift in Sources */,
-				D82C065E2146D1AA00392D64 /* DOLDataRequestHandler.swift in Sources */,
 				D8E340412146BBC600A36379 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
