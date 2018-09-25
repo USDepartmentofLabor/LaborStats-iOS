@@ -8,18 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		71028B1053E29B753978D649 /* Pods_LaborStats_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9418A065206C39CF8C29DE46 /* Pods_LaborStats_iOS.framework */; };
+		D85A23B42153FCEF00B6313B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85A23B32153FCEF00B6313B /* DetailViewController.swift */; };
 		D8C873232146C6190038A057 /* CurrentNumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C873222146C6190038A057 /* CurrentNumbersViewController.swift */; };
 		D8C873252146C6350038A057 /* NewsReleasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C873242146C6350038A057 /* NewsReleasesViewController.swift */; };
 		D8E340412146BBC600A36379 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E340402146BBC600A36379 /* AppDelegate.swift */; };
 		D8E340462146BBC600A36379 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8E340442146BBC600A36379 /* Main.storyboard */; };
 		D8E340482146BBC700A36379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8E340472146BBC700A36379 /* Assets.xcassets */; };
 		D8E3404B2146BBC700A36379 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8E340492146BBC700A36379 /* LaunchScreen.storyboard */; };
+		D8F41794215AA6B200A93690 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F41793215AA6B200A93690 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		45B644021F86CBFE585F67E2 /* Pods-LaborStats-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaborStats-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LaborStats-iOS/Pods-LaborStats-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		7D7025A4D73ED58F5B98AC71 /* Pods-LaborStats-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaborStats-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-LaborStats-iOS/Pods-LaborStats-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		9418A065206C39CF8C29DE46 /* Pods_LaborStats_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LaborStats_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D85A23B32153FCEF00B6313B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D8C873222146C6190038A057 /* CurrentNumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentNumbersViewController.swift; sourceTree = "<group>"; };
 		D8C873242146C6350038A057 /* NewsReleasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsReleasesViewController.swift; sourceTree = "<group>"; };
 		D8E3403D2146BBC600A36379 /* LaborStats-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LaborStats-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +31,7 @@
 		D8E340472146BBC700A36379 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8E3404A2146BBC700A36379 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8E3404C2146BBC700A36379 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8F41793215AA6B200A93690 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,15 +75,41 @@
 		D8E3403F2146BBC600A36379 /* LaborStats-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D8E340402146BBC600A36379 /* AppDelegate.swift */,
-				D8C873222146C6190038A057 /* CurrentNumbersViewController.swift */,
-				D8C873242146C6350038A057 /* NewsReleasesViewController.swift */,
-				D8E340442146BBC600A36379 /* Main.storyboard */,
-				D8E340472146BBC700A36379 /* Assets.xcassets */,
-				D8E340492146BBC700A36379 /* LaunchScreen.storyboard */,
+				D8F41796215AAEC500A93690 /* Controller */,
+				D8F41795215AAEAD00A93690 /* Model */,
+				D8F41798215AAEF100A93690 /* View */,
 				D8E3404C2146BBC700A36379 /* Info.plist */,
 			);
 			path = "LaborStats-iOS";
+			sourceTree = "<group>";
+		};
+		D8F41795215AAEAD00A93690 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D8F41793215AA6B200A93690 /* DataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D8F41796215AAEC500A93690 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D8E340402146BBC600A36379 /* AppDelegate.swift */,
+				D8C873222146C6190038A057 /* CurrentNumbersViewController.swift */,
+				D8C873242146C6350038A057 /* NewsReleasesViewController.swift */,
+				D85A23B32153FCEF00B6313B /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D8F41798215AAEF100A93690 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D8E340472146BBC700A36379 /* Assets.xcassets */,
+				D8E340442146BBC600A36379 /* Main.storyboard */,
+				D8E340492146BBC700A36379 /* LaunchScreen.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EDC35F0C299965AFE629FDD3 /* Pods */ = {
@@ -205,9 +235,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8F41794215AA6B200A93690 /* DataModel.swift in Sources */,
 				D8C873232146C6190038A057 /* CurrentNumbersViewController.swift in Sources */,
 				D8C873252146C6350038A057 /* NewsReleasesViewController.swift in Sources */,
 				D8E340412146BBC600A36379 /* AppDelegate.swift in Sources */,
+				D85A23B42153FCEF00B6313B /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
